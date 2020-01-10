@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 	<title>Магазин</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
+<center>
 <span id="days"></span> : <span id="hours"></span> : <span id="minutes"></span> : <span id="secondss"></span>
 <script type="text/javascript">
 const second = 1000,
@@ -18,7 +18,7 @@ document.getElementById('hours').innerText = Math.floor((distance % (day)) / (ho
 document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
 document.getElementById('secondss').innerText = Math.floor((distance % (minute)) / second);
 }, second)
-</script>
+</script></center>
 
 <style>
 * {
