@@ -2,6 +2,24 @@
 <meta charset="UTF-8">
 	<title>Магазин</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<span id="days"></span> : <span id="hours"></span> : <span id="minutes"></span> : <span id="secondss"></span>
+<script type="text/javascript">
+const second = 1000,
+minute = second * 60,
+hour = minute * 60,
+day = hour * 24;
+let countDown = new Date('Dec 31, 2020 03:40:00 GMT+02:00').getTime(),
+x = setInterval(function() {
+let now = new Date().getTime(),
+distance = countDown - now;
+document.getElementById('days').innerText = Math.floor(distance / (day)),
+document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+document.getElementById('secondss').innerText = Math.floor((distance % (minute)) / second);
+}, second)
+</script>
+
 <style>
 * {
 	border: 0;
@@ -330,6 +348,23 @@ div.troll__right-hand, div.troll__left-hand {
 }
 </style>
 
+<span id="days"></span> : <span id="hours"></span> : <span id="minutes"></span> : <span id="secondss"></span>
+<script type="text/javascript">
+const second = 1000,
+minute = second * 60,
+hour = minute * 60,
+day = hour * 24;
+let countDown = new Date('Dec 31, 2020 03:40:00 GMT+02:00').getTime(),
+x = setInterval(function() {
+let now = new Date().getTime(),
+distance = countDown - now;
+document.getElementById('days').innerText = Math.floor(distance / (day)),
+document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+document.getElementById('secondss').innerText = Math.floor((distance % (minute)) / second);
+}, second)
+</script>
+
 <div class="troll">
 <div class="troll__head">
 <img class="troll__face" src="https://i.ibb.co/8XVN8CW/trollface.png" 
@@ -361,24 +396,6 @@ div.troll__right-hand, div.troll__left-hand {
 </div>
 </div>
 </div>
-	
-	<span id="days"></span> : <span id="hours"></span> : <span id="minutes"></span> : <span id="secondss"></span>
-<script type="text/javascript">
-const second = 1000,
-minute = second * 60,
-hour = minute * 60,
-day = hour * 24;
-let countDown = new Date('Dec 31, 2020 03:40:00 GMT+02:00').getTime(),
-x = setInterval(function() {
-let now = new Date().getTime(),
-distance = countDown - now;
-document.getElementById('days').innerText = Math.floor(distance / (day)),
-document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-document.getElementById('secondss').innerText = Math.floor((distance % (minute)) / second);
-}, second)
-</script>
-	
 </body>
 </html>
 
