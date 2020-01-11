@@ -1,0 +1,433 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+	<div class="wrapper">
+	<h1>ENJOY-STICK.RU</h1>
+	<h2>© Copyright 2018 - 2020 — Enjoy-Stick Все права защищены.</h2>
+	
+<div class="button">
+	<a href="/stickers/" target="_blank">
+	<span class="text"> Купить стикеров </span>
+	<span class="progress"></span>
+	<span class="icon"></span>
+	</a>
+</div>
+<br>
+<div class="button">
+	<a href="https://vk.com/add_community_app?aid=7259590" target="_blank">
+	<span class="text">Добавить в группу</span>
+	<span class="progress"></span>
+	<span class="icon"></span>
+	</a>
+</div>
+	</body>
+</html>
+
+	<style>
+	*, *:before, *:after, ul, li, a, button, input, h1, h2, h3, h4, h5, h6, p, img, image, svg, path, g {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	  background-color: transparent;
+	  border: none;
+	  text-decoration: none;
+	  font-family: 'Roboto';
+	  -webkit-user-select: none;
+		 -moz-user-select: none;
+		  -ms-user-select: none;
+			  user-select: none;
+	}
+	
+	html, body {
+	  width: 100%;
+	  height: 100%;
+	  margin: 0;
+	  padding: 0;
+	  background-color: #FAFAFA;
+	  font-family: 'Roboto';
+	}
+body{
+    background: url(https://enjoy-stick.ru/images/background.svg);
+    background-size: 14%;
+}
+
+	.wrapper {
+	  width: 100%;
+	  min-height: 100vh;
+	  background-size: cover;
+	  position: relative;
+	  z-index: 1;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-direction: column;
+	}
+	.wrapper:after {
+	  content: "";
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  background-color: #22222261;
+	  left: 0;
+	  top: 0;
+	}
+	
+	h1 {
+	  position: relative;
+	  z-index: 2;
+	  color: white;
+	  font-weight: 900;
+	  font-size: 5em;
+	}
+	
+	h2 {
+	  position: relative;
+	  z-index: 2;
+	  color: white;
+	  font-weight: 300;
+	  font-size: 1em;
+	  margin-bottom: 50px;
+	  margin-top: -10px;
+	}
+	
+	#player {
+	  position: relative;
+	  z-index: 2;
+	  width: 600px;
+	  height: 150px;
+	  background-color: #fff;
+	  border-radius: 10px;
+	  display: flex;
+	}
+	#player img {
+	  position: absolute;
+	  left: 15px;
+	  top: -25px;
+	  border-radius: 10px;
+	}
+	#player .player-song {
+	  width: 370px;
+	  height: 100%;
+	  margin-left: 230px;
+	}
+	#player .player-song .title {
+	  color: #333;
+	  font-weight: 500;
+	  font-size: 20px;
+	  margin-top: 20px;
+	}
+	#player .player-song .artist {
+	  font-size: 14px;
+	  font-weight: 400;
+	  color: rgba(0, 0, 0, 0.5);
+	}
+	#player .player-song .timestamps {
+	  width: calc(100% - 15px);
+	  display: flex;
+	  justify-content: space-between;
+	  font-size: 10px;
+	  color: rgba(0, 0, 0, 0.4);
+	}
+	#player .player-song .actions {
+	  width: 100%;
+	  height: 30px;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+	#player .player-song .actions .next, #player .player-song .actions .prev {
+	  cursor: pointer;
+	}
+	#player .player-song .actions i {
+	  font-size: 32px;
+	  -webkit-transform: translateY(2px);
+			  transform: translateY(2px);
+	  color: #bbbbbb;
+	  transition: .1s;
+	}
+	#player .player-song .actions i:hover {
+	  color: #888888;
+	  transition: .1s;
+	}
+	
+	progress[value] {
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+		   appearance: none;
+	  width: calc(100% - 15px);
+	  height: 6px;
+	  border-radius: 50px;
+	  margin-top: 20px;
+	}
+	
+	progress[value]::-webkit-progress-bar {
+	  background-color: #eee;
+	  border-radius: 50px;
+	}
+	
+	progress[value]::-webkit-progress-value {
+	  border-radius: 50px;
+	  background-color: #333DDD;
+	}
+	
+	.play-button {
+	  height: 16px;
+	  width: 16px;
+	  display: block;
+	  overflow: hidden;
+	  position: relative;
+	  margin: 0 10px;
+	}
+	.play-button:hover .left, .play-button:hover .right {
+	  background-color: #888888;
+	}
+	
+	.left {
+	  height: 100%;
+	  float: left;
+	  background-color: #bbbbbb;
+	  width: 36%;
+	  transition: all 0.25s ease;
+	  overflow: hidden;
+	}
+	
+	.triangle-1 {
+	  -webkit-transform: translate(0, -100%);
+	  transform: translate(0, -100%);
+	}
+	
+	.triangle-2 {
+	  -webkit-transform: translate(0, 100%);
+	  transform: translate(0, 100%);
+	}
+	
+	.triangle-1,
+	.triangle-2 {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  background-color: transparent;
+	  width: 0;
+	  height: 0;
+	  border-right: 16px solid #fff;
+	  border-top: 8px solid transparent;
+	  border-bottom: 8px solid transparent;
+	  transition: -webkit-transform 0.25s ease;
+	  transition: transform 0.25s ease;
+	  transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+	}
+	
+	.right {
+	  height: 100%;
+	  float: right;
+	  width: 36%;
+	  background-color: #bbbbbb;
+	  transition: all 0.25s ease;
+	}
+	
+	.paused .left {
+	  width: 50%;
+	}
+	
+	.paused .right {
+	  width: 50%;
+	}
+	
+	.paused .triangle-1 {
+	  -webkit-transform: translate(0, -50%);
+	  transform: translate(0, -50%);
+	}
+	
+	.paused .triangle-2 {
+	  -webkit-transform: translate(0, 50%);
+	  transform: translate(0, 50%);
+	}
+		.source {
+		  position: absolute;
+		  left: 10px;
+		  bottom: 10px;
+		  margin: 0;
+		  color: #999;
+		  font-weight: 300;
+		  font-size: 14px;
+		}
+		.source a {
+		  color: #999;
+		  text-decoration: none;
+		}
+		
+		.button {
+    /* width: 190px; */
+    /* position: absolute; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    z-index: 1050;
+	display: flex;
+}
+		.button a {
+		  width: 180px;
+		  display: block;
+		  text-align: center;
+		  background: #222;
+		  border-radius: 28px;
+		  padding: 5px;
+		  cursor: pointer;
+		  position: relative;
+		  overflow: hidden;
+		  transition: .3s all ease-in-out;
+		}
+		.button a .text {
+		  display: block;
+		  height: 45px;
+		  line-height: 45px;
+		  color: #fff;
+		  transition: .3s all ease-in-out;
+		}
+		.button a .progress {
+		  background: #4193f7;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  width: 0;
+		}
+		.button.connect a {
+		  background: #e5e5e5;
+		  width: 0;
+		  padding: 5px 0;
+		  float: right;
+		  transition: .3s width ease-in-out 2.0s, .3s padding ease-in-out 2.0s;
+		}
+		.button.connect a .text {
+		  animation: textHeight .6s ease-in-out forwards;
+		  overflow: hidden;
+		}
+		.button.connect a .progress {
+		  width: 100%;
+		  transition: 1.4s width ease-out .6s;
+		}
+		.button.connected a {
+		  display: none;
+		}
+		.button .svg-button {
+		  display: block;
+		  visibility: hidden;
+		  width: 180px;
+		  height: 45px;
+		  line-height: 45px;
+		  padding: 5px;
+		  text-align: center;
+		  position: absolute;
+		  border-radius: 4px;
+		  overflow: hidden;
+		  top: 0;
+		  left: 0;
+		  transform: translate(0%, -50%);
+		}
+		.button .svg-button .letter {
+		  opacity: 0;
+		  color: #28e470;
+		  display: inline-block;
+		  transform: translate(0px, 5px);
+		}
+		.button .svg-button svg {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		}
+		.button .svg-button svg rect {
+		  fill: none;
+		  stroke: #28e470;
+		  stroke-width: 2;
+		  stroke-dasharray: 0, 480;
+		  stroke-dashoffset: 480;
+		  transition: all .3s ease-in-out;
+		}
+		.button.connected .svg-button {
+		  visibility: visible;
+		}
+		.button.connected .svg-button .letter {
+		  animation: slideUp 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+		}
+		.button.connected .svg-button .letter:nth-child(1) {
+		  animation-delay: 0.05s;
+		}
+		.button.connected .svg-button .letter:nth-child(2) {
+		  animation-delay: 0.1s;
+		}
+		.button.connected .svg-button .letter:nth-child(3) {
+		  animation-delay: 0.15s;
+		}
+		.button.connected .svg-button .letter:nth-child(4) {
+		  animation-delay: 0.2s;
+		}
+		.button.connected .svg-button .letter:nth-child(5) {
+		  animation-delay: 0.25s;
+		}
+		.button.connected .svg-button .letter:nth-child(6) {
+		  animation-delay: 0.3s;
+		}
+		.button.connected .svg-button .letter:nth-child(7) {
+		  animation-delay: 0.35s;
+		}
+		.button.connected .svg-button .letter:nth-child(8) {
+		  animation-delay: 0.4s;
+		}
+		.button.connected .svg-button .letter:nth-child(9) {
+		  animation-delay: 0.45s;
+		}
+		.button.connected .svg-button svg rect {
+		  stroke-width: 6;
+		  stroke-dasharray: 400, 0;
+		  transition: all .3s ease-in-out;
+		}
+		
+		@keyframes textHeight {
+		  0% {
+			height: 45px;
+			line-height: 45px;
+			opacity: 1;
+		  }
+		  25% {
+			line-height: 35px;
+		  }
+		  50% {
+			height: 55px;
+		  }
+		  75% {
+			line-height: 75px;
+		  }
+		  100% {
+			height: 0;
+			opacity: 0;
+		  }
+		}
+		@keyframes progressbar {
+		  0% {
+			width: 0;
+		  }
+		  75% {
+			width: 100%;
+			left: 0;
+		  }
+		  100% {
+			left: 190px;
+		  }
+		}
+		@keyframes slideUp {
+		  0% {
+			opacity: 0;
+			transform: translate(0px, 5px);
+		  }
+		  100% {
+			opacity: 1;
+			transform: translate(0px, 0px);
+		  }
+		}
+			</style>
