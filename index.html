@@ -228,35 +228,167 @@ font-family:'HelveticaNeue','Arial', sans-serif;
 	<h1>ENJOY-STICK.RU</h1>
 	<h2>© Copyright 2018 - 2020 — Enjoy-Stick Все права защищены.</h2>
 	
+		<style>
+		
+		.row {
+		  min-height: 100vh;
+		}
+		
+		.card {
+		  border: 0;
+		  border-radius: 0px;
+		  -webkit-box-shadow: 0 3px 0px 0 rgba(0, 0, 0, 0.08);
+		  box-shadow: 0 3px 0px 0 rgba(0, 0, 0, 0.08);
+		  transition: all .3s ease-in-out;
+		  padding: 2.25rem 0;
+		  position: relative;
+		  will-change: transform;
+		}
+		.card:after {
+		  content: '';
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 0%;
+		  height: 5px;
+		  background-color: #57e2b2;
+		  transition: 0.5s;
+		}
+		.card:hover {
+		  transform: scale(1.05);
+		  -webkit-box-shadow: 0 20px 35px 0 rgba(0, 0, 0, 0.08);
+		  box-shadow: 0 20px 35px 0 rgba(0, 0, 0, 0.08);
+		}
+		.card:hover:after {
+		  width: 100%;
+		}
+		.card .card-header {
+		  background-color: white;
+		  padding-left: 2rem;
+		  border-bottom: 0px;
+		}
+		.card .card-title {
+		  margin-bottom: 1rem;
+		}
+		.card .card-block {
+		  padding-top: 0;
+		}
+		.card .list-group-item {
+		  border: 0px;
+		  padding: .25rem;
+		  color: #808080;
+		  font-weight: 300;
+		}
+		
+		.display-2 {
+		  font-size: 7rem;
+		  letter-spacing: -.5rem;
+		}
+		.display-2 .currency {
+		  font-size: 2.75rem;
+		  position: relative;
+		  font-weight: 400;
+		  top: -45px;
+		  letter-spacing: 0px;
+		}
+		.display-2 .period {
+		  font-size: 1rem;
+		  color: #b3b3b3;
+		  letter-spacing: 0px;
+		}
+		
+		.btn {
+		  text-transform: uppercase;
+		  font-size: .75rem;
+		  font-weight: 500;
+		  color: #a6a6a6;
+		  border-radius: 0;
+		  padding: .75rem 1.25rem;
+		  letter-spacing: 1px;
+		}
+		
+		.btn-gradient {
+		  background-color: #f2f2f2;
+		  transition: background .3s ease-in-out;
+		}
+		.btn-gradient:hover {
+		  color: white;
+		  background-color: #57e2b2;
+		}
+		</style>
+		<script>
+		  window.console = window.console || function(t) {};
+		</script>
+		<script>
+		  if (document.location.search.match(/type=embed/gi)) {
+			window.parent.postMessage("resize", "*");
+		  }
+		</script>
 
-<div id="player">
-	<img src="https://enjoy-stick.ru/stickersss/1-1-512.jpg" class="coverr" alt="" height="200" width="200">
-	<div class="player-song">
-	<div class="title">Стандартный</div>
-	<div class="artist">Подарки Стикеры Для Выбора Имени Подарка</div>
-	</div>
-	</div>
 
-	<br><br><br>
+		<div class="container">
+		<div class="row flex-items-xs-middle flex-items-xs-center">
+		
+		<div class="col-xs-12 col-lg-4">
+		<div class="card text-xs-center">
+		<div class="card-header">
+		<h3 class="display-2"><span class="currency">$</span>19<span class="period">/month</span></h3>
+		</div>
+		<div class="card-block">
+		<h4 class="card-title">
+		Basic Plan
+		</h4>
+		<ul class="list-group">
+		<li class="list-group-item">Ultimate Features</li>
+		<li class="list-group-item">Responsive Ready</li>
+		<li class="list-group-item">Visual Composer Included</li>
+		<li class="list-group-item">24/7 Support System</li>
+		</ul>
+		<a href="#" class="btn btn-gradient mt-2">Choose Plan</a>
+		</div>
+		</div>
+		</div>
+		
+		<div class="col-xs-12 col-lg-4">
+		<div class="card text-xs-center">
+		<div class="card-header">
+		<h3 class="display-2"><span class="currency">$</span>29<span class="period">/month</span></h3>
+		</div>
+		<div class="card-block">
+		<h4 class="card-title">
+		Regular Plan
+		</h4>
+		<ul class="list-group">
+		<li class="list-group-item">Ultimate Features</li>
+		<li class="list-group-item">Responsive Ready</li>
+		<li class="list-group-item">Visual Composer Included</li>
+		<li class="list-group-item">24/7 Support System</li>
+		</ul>
+		<a href="#" class="btn btn-gradient mt-2">Choose Plan</a>
+		</div>
+		</div>
+		</div>
+		
+		<div class="col-xs-12 col-lg-4">
+		<div class="card text-xs-center">
+		<div class="card-header">
+		<h3 class="display-2"><span class="currency">$</span>39<span class="period">/month</span></h3>
+		</div>
+		<div class="card-block">
+		<h4 class="card-title">
+		Premium Plan
+		</h4>
+		<ul class="list-group">
+		<li class="list-group-item">Ultimate Features</li>
+		<li class="list-group-item">Responsive Ready</li>
+		<li class="list-group-item">Visual Composer Included</li>
+		<li class="list-group-item">24/7 Support System</li>
+		</ul>
+		<a href="#" class="btn btn-gradient mt-2">Choose Plan</a>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
 
-<div id="player">
-	<img src="https://enjoy-stick.ru/stickersss/1-1-512.jpg" class="coverr" alt="" height="200" width="200">
-	<div class="player-song">
-	<div class="title">Стандартный</div>
-	<div class="artist">Подарки Стикеры Для Выбора Имени Подарка</div>
-	</div>
-	</div>
-	
-		</div><br><br><br>
-	
-<div id="player">
-	<img src="https://enjoy-stick.ru/stickersss/1-1-512.jpg" class="coverr" alt="" height="200" width="200">
-	<div class="player-song">
-	<div class="title">Стандартный</div>
-	<div class="artist">Подарки Стикеры Для Выбора Имени Подарка</div>
-	</div>
-	</div>
-	</div>
-
-	
 	</body></html>
