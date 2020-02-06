@@ -319,5 +319,46 @@ font-family: 'Rubik', sans-serif;
     });  
 </script> 
   
+  
+  <!-- -->
+  
+  
+    <div id="refresh">
+    //тут у нас код. обращаемся в базу и делаем то что нам надо.
+  </div>
+
+  <a href="#" id="refreshBtn">
+    <span class="button">Обновить</span>
+  </a>
+</body>
+
+<script>
+  function funcBefore () {
+      $("#refresh").text ("Ожидаю данные...");
+  }
+
+  function funcSuccess (data) {
+      $("#refresh").html(data);
+  }
+
+  $(document).ready(function)(){
+    // обработчик кнопки
+    $("#refreshBtn").click(function(e){
+        e.preventDefault();
+        $.ajax ({
+            url: "script.php ",
+            dataType: "html",
+            beforeSend: funcBefore,
+            success: funcSuccess
+        });
+    });
+  });
+</script>
+  
+  
+  
+  
+  
+  
 </div>
   </center> 
