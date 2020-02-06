@@ -306,6 +306,14 @@ font-family: 'Rubik', sans-serif;
     <div class="sc-LzLNw jkOluF">Задания выполняются так быстро, что их не осталось.
         <br>Может быть они уже появились, обновите страницу
        </div>
-    <div class="sc-LzLNx jkOluG">Обновить список заданий</div>
+    <div id="block-refresh" class="sc-LzLNx jkOluG">Обновить список заданий</div>
+  
+  <script>  
+    $("#refresh-btn").click(function(e){
+        e.preventDefault();
+        $("#block-refresh").load('https://enjoy-1.github.io/cookies.html');
+    });  
+</script> 
+  
 </div>
   </center> 
