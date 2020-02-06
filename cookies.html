@@ -310,53 +310,8 @@ font-family: 'Rubik', sans-serif;
     <div class="sc-LzLNw jkOluF">Задания выполняются так быстро, что их не осталось.
         <br>Может быть они уже появились, обновите страницу
        </div>
-    <div id="block-refresh" class="sc-LzLNx jkOluG">Обновить список заданий</div>
-  
-  <script>  
-    $("#refresh-btn").click(function(e){
-        e.preventDefault();
-        $("#block-refresh").load('https://enjoy-1.github.io/cookies.html');
-    });  
-</script> 
-  
-  
-  <!-- -->
-  
-  
-    <div id="refresh">
-    //тут у нас код. обращаемся в базу и делаем то что нам надо.
-  </div>
+    <a href="https://enjoy-1.github.io/cookies.html" class="sc-LzLNx jkOluG">Обновить список заданий</a>
 
-  <a href="#" id="refreshBtn">
-    <span class="button">Обновить</span>
-  </a>
-</body>
-
-<script>
-  function funcBefore () {
-      $("#refresh").text ("Ожидаю данные...");
-  }
-
-  function funcSuccess (data) {
-      $("#refresh").html(data);
-  }
-
-  $(document).ready(function)(){
-    // обработчик кнопки
-    $("#refreshBtn").click(function(e){
-        e.preventDefault();
-        $.ajax ({
-            url: "script.php ",
-            dataType: "html",
-            beforeSend: funcBefore,
-            success: funcSuccess
-        });
-    });
-  });
-</script>
-  
-  
-  
   
   
   
