@@ -94,7 +94,7 @@
                                 mode: "destructive",
                                 action: function() {
                                     i.a.send("VKWebAppAllowMessagesFromGroup", {
-                                        group_id: 138292893
+                                        group_id: 188761943
                                     }).then((function() {
                                         i.a.send("VKWebAppShowStoryBox", {
                                             background_type: "image",
@@ -129,7 +129,7 @@
                                             }]
                                         }).then((function() {
                                             i.a.send("VKWebAppSendPayload", {
-                                                group_id: 138292893,
+                                                group_id: 188761943,
                                                 payload: {
                                                     foo: "bar"
                                                 }
@@ -176,7 +176,7 @@
                         bottomContent: l.a.createElement(E.a, {
                             onClick: function() {
                                 i.a.send("VKWebAppJoinGroup", {
-                                    group_id: 138292893
+                                    group_id: 188761943
                                 }).then((function() {
                                     return _(!1)
                                 }))

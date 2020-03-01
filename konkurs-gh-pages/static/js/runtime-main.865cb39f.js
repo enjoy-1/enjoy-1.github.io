@@ -63,7 +63,7 @@
         return l.d(r, "a", r), r
     }, l.o = function(e, r) {
         return Object.prototype.hasOwnProperty.call(e, r)
-    }, l.p = "/konkurs/";
+    }, l.p = "/konkurs-gh-pages/";
     var f = window.webpackJsonpkonkurs = window.webpackJsonpkonkurs || [],
         i = f.push.bind(f);
     f.push = r, f = f.slice();
