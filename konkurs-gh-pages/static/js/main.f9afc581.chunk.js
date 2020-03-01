@@ -187,7 +187,7 @@
                             size: 80
                         }),
                         size: "l"
-                    }, "VK Cake")))) : null, C), l.a.createElement(p.a, {
+                    }, "ENJOY STICK")))) : null, C), l.a.createElement(p.a, {
                         id: "error"
                     }, l.a.createElement(d.a, {
                         left: l.a.createElement(K.a, {
