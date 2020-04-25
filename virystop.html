@@ -1,0 +1,949 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+.container {
+  border-radius: 4px;
+  display: -webkit-box;
+  display: flex;
+  height: 300px;
+  margin: 40px auto 50px auto;
+  position: relative;
+  width: 450px;
+}
+
+.bubbles {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 100%;
+  bottom: 0;
+  height: 8px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  width: 8px;
+  z-index: 2;
+}
+.bubbles:before, .bubbles:after {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 100%;
+  content: '';
+  display: block;
+  height: 5px;
+  left: -10px;
+  position: relative;
+  width: 5px;
+}
+.bubbles:before {
+  top: -10px;
+}
+.bubbles:after {
+  top: 2px;
+}
+.bubbles-one {
+  -webkit-animation: anim-bubbles 2s ease-in-out 0s infinite;
+          animation: anim-bubbles 2s ease-in-out 0s infinite;
+}
+.bubbles-two {
+  -webkit-animation: anim-bubbles 2s ease-in-out 1.2s infinite;
+          animation: anim-bubbles 2s ease-in-out 1.2s infinite;
+}
+.bubbles-two:after {
+  content: none;
+}
+
+.character {
+  animation: anim-jump .4s ease-in-out 0s infinite alternate-reverse;
+  margin: auto;
+}
+
+.head {
+  animation: anim-head 0.8s cubic-bezier(0.5, -1, 0.5, 2) 0s infinite alternate-reverse;
+  height: 155px;
+  position: relative;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  z-index: 3;
+}
+.head-anim {
+  -webkit-animation: anim-jump .8s ease-in-out 0s infinite;
+          animation: anim-jump .8s ease-in-out 0s infinite;
+}
+.head-back {
+  background-color: #7de;
+  border-radius: 250px 250px 30px 30px;
+  height: 80px;
+  position: relative;
+  width: 150px;
+}
+.head-front {
+  background-color: #aee;
+  border-radius: 40px 40px 0 0;
+  height: 155px;
+  margin: 0 auto;
+  position: relative;
+  top: -80px;
+  width: 90px;
+}
+
+.rounding {
+  bottom: -71.5px;
+  position: relative;
+  z-index: -1;
+}
+
+.round {
+  border: 9px solid #2bd;
+  border-radius: 25px 25px 0 0;
+  border-color: #2bd transparent transparent transparent;
+  height: 25px;
+  position: absolute;
+  width: 25px;
+}
+.round-one {
+  left: -5px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.round-two {
+  right: -5px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.circles {
+  background-color: #7de;
+  border-radius: 100%;
+  height: 8px;
+  position: absolute;
+  right: 50px;
+  top: 70px;
+  width: 8px;
+}
+.circles:before, .circles:after {
+  background-color: #7de;
+  border-radius: 100%;
+  content: '';
+  display: block;
+  height: 8px;
+  left: 10px;
+  position: relative;
+  width: 8px;
+}
+.circles:before {
+  top: -10px;
+}
+.circles:after {
+  top: 2px;
+}
+
+.eyes {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+.eyes .eye {
+  background-color: #fff;
+  border: 8px #7de solid;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: flex;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 40px;
+}
+.eyes .eye:before, .eyes .eye:after {
+  background-color: #7de;
+  content: '';
+  height: 50%;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.eyes .eye:before {
+  -webkit-animation: anim-eye-top 1.8s ease-in-out 0s infinite;
+          animation: anim-eye-top 1.8s ease-in-out 0s infinite;
+  top: -50%;
+}
+.eyes .eye:after {
+  -webkit-animation: anim-eye-bottom 1.8s ease-in-out 0s infinite;
+          animation: anim-eye-bottom 1.8s ease-in-out 0s infinite;
+  bottom: -50%;
+  left: 0;
+}
+.eyes .eye-one {
+  float: right;
+}
+
+.pupil {
+  margin: auto;
+  position: relative;
+  width: 25px;
+  height: 12px;
+}
+.pupil:before, .pupil:after {
+  background-color: #055;
+  border: 1px solid #055;
+  border-radius: 8px 8px 0 8px;
+  content: '';
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 10px;
+}
+.pupil:after {
+  border-radius: 8px 8px 8px 0;
+  left: auto;
+  right: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.mouth {
+  -webkit-animation: anim-mouth 2s ease-in-out 0s infinite;
+          animation: anim-mouth 2s ease-in-out 0s infinite;
+  background-color: #055;
+  border-radius: 0 0 15px 15px;
+  bottom: 105px;
+  height: 15px;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  width: 25px;
+}
+.mouth:before, .mouth:after {
+  content: '';
+  display: block;
+}
+.mouth:before {
+  background-color: #fff;
+  height: 5px;
+  width: 90%;
+  -webkit-transform: skewX(-15deg);
+          transform: skewX(-15deg);
+}
+.mouth:after {
+  -webkit-animation: anim-mouth-teeth-bottom 2s ease-in-out 0s infinite;
+          animation: anim-mouth-teeth-bottom 2s ease-in-out 0s infinite;
+  background-color: #e66;
+  bottom: -4px;
+  border-radius: 100%;
+  height: 10px;
+  position: absolute;
+  width: 17px;
+}
+
+.body {
+  bottom: 2px;
+  height: 80px;
+  position: relative;
+}
+
+.tentacles {
+  box-shadow: inset 0 10px 0 0 #7de;
+  margin: 0 auto;
+}
+.tentacles:before, .tentacles:after {
+  box-shadow: inset 0 20px 0 0 #7de;
+  content: '';
+  display: block;
+  position: absolute;
+  top: -10px;
+}
+.tentacles:before {
+  margin-left: -15px;
+}
+.tentacles:after {
+  margin-left: 15px;
+}
+.tentacles-left, .tentacles-right {
+  height: 80px;
+  position: absolute;
+  top: -15px;
+  width: 100px;
+}
+.tentacles-left {
+  animation: anim-jump .6s alternate-reverse infinite, anim-head .8s alternate-reverse infinite;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  z-index: 1;
+}
+.tentacles-left:before {
+  border: 10px solid;
+  border-color: transparent transparent transparent #aee;
+  border-radius: 0 0 0 20px;
+  content: '';
+  display: block;
+  height: 35px;
+  left: 34px;
+  position: relative;
+  -webkit-transform: rotate(27deg);
+          transform: rotate(27deg);
+  width: 10px;
+}
+.tentacles-left:after {
+  border: 10px solid;
+  border-color: transparent transparent transparent #aee;
+  border-radius: 90px;
+  content: '';
+  display: block;
+  height: 21px;
+  left: 7px;
+  position: relative;
+  top: -86px;
+  -webkit-transform: rotate(-65deg);
+          transform: rotate(-65deg);
+  width: 100px;
+  z-index: -1;
+}
+.tentacles-left .part-anim {
+  position: relative;
+  left: 18px;
+  top: 33px;
+  -webkit-transform: rotate(72deg);
+          transform: rotate(72deg);
+}
+.tentacles-left .line {
+  animation: anim-tentacle-left .25s ease-in-out alternate-reverse infinite;
+  background-color: #aee;
+  border-radius: 100% 80%;
+  height: 10px;
+  -webkit-transform-origin: center right;
+          transform-origin: center right;
+  width: 10px;
+}
+.tentacles-right {
+  animation: anim-tentacle-right .8s ease-in-out alternate-reverse infinite;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  right: -15px;
+}
+.tentacles-right:before {
+  border: 10px solid;
+  border-color: transparent transparent transparent #aee;
+  border-radius: 0 0 0 15px;
+  content: '';
+  display: block;
+  height: 51px;
+  left: 34px;
+  position: relative;
+  width: 10px;
+}
+.tentacles-right .part-one {
+  left: 35px;
+  position: relative;
+  top: -32px;
+}
+.tentacles-right .part-one:before {
+  border: 10px solid;
+  border-color: transparent transparent #aee #aee;
+  border-radius: 90px;
+  content: '';
+  display: block;
+  height: 15px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 15px;
+}
+.tentacles-right .part-one:after {
+  background-color: #aee;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 10px;
+  position: absolute;
+  right: 65px;
+  top: 13px;
+  width: 10px;
+  z-index: 2;
+}
+
+.tentacles,
+.tentacles:before,
+.tentacles:after {
+  background-color: #aee;
+  border-radius: 0 0 10px 10px;
+  height: 80px;
+  width: 10px;
+}
+
+.guitar {
+  animation: anim-head .8s ease-in-out 0s infinite alternate-reverse;
+  left: 50px;
+  position: relative;
+  top: -70px;
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.deck {
+  background-color: #fb1;
+  border-radius: 100%;
+  height: 40px;
+  width: 38px;
+}
+.deck:before, .deck:after {
+  border-radius: 100%;
+  content: '';
+  display: block;
+  position: relative;
+}
+.deck:before {
+  background-color: #fb1;
+  height: 30px;
+  left: 25px;
+  top: 6px;
+  width: 28px;
+}
+.deck:after {
+  background-color: #055;
+  bottom: 15px;
+  height: 12px;
+  left: 25px;
+  width: 12px;
+}
+
+.neck {
+  background-color: #e66;
+  height: 7px;
+  left: 37px;
+  position: absolute;
+  top: 17.5px;
+  width: 50px;
+}
+.neck:after {
+  background-color: #fb1;
+  bottom: 2px;
+  content: '';
+  display: block;
+  height: 11px;
+  right: -50px;
+  position: relative;
+  width: 20px;
+}
+
+@-webkit-keyframes anim-jump {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+}
+
+@keyframes anim-jump {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+}
+@-webkit-keyframes anim-head {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+@keyframes anim-head {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+@-webkit-keyframes anim-bubbles {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  30% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  65% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    left: 150px;
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    bottom: 100%;
+    left: 80px;
+  }
+}
+@keyframes anim-bubbles {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  30% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  65% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    left: 150px;
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    bottom: 100%;
+    left: 80px;
+  }
+}
+@-webkit-keyframes anim-eye-top {
+  10% {
+    top: 0%;
+  }
+  20% {
+    top: -50%;
+  }
+}
+@keyframes anim-eye-top {
+  10% {
+    top: 0%;
+  }
+  20% {
+    top: -50%;
+  }
+}
+@-webkit-keyframes anim-eye-bottom {
+  10% {
+    bottom: 0%;
+  }
+  20% {
+    bottom: -50%;
+  }
+}
+@keyframes anim-eye-bottom {
+  10% {
+    bottom: 0%;
+  }
+  20% {
+    bottom: -50%;
+  }
+}
+@-webkit-keyframes anim-mouth {
+  0% {
+    height: 15px;
+  }
+  10% {
+    height: 17px;
+  }
+  20% {
+    height: 15px;
+  }
+  30% {
+    height: 17px;
+  }
+  40% {
+    height: 15px;
+  }
+  50% {
+    height: 17px;
+  }
+  65% {
+    border-radius: 0 0 15px 15px;
+    height: 15px;
+    width: 25px;
+  }
+  66% {
+    border-radius: 15px;
+    height: 12px;
+    width: 10px;
+  }
+  80% {
+    border-radius: 15px;
+    height: 12px;
+    width: 10px;
+  }
+  81% {
+    border-radius: 0 0 15px 15px;
+    height: 8px;
+    width: 25px;
+  }
+  90% {
+    border-radius: 0 0 15px 15px;
+    height: 8px;
+    width: 25px;
+  }
+}
+@keyframes anim-mouth {
+  0% {
+    height: 15px;
+  }
+  10% {
+    height: 17px;
+  }
+  20% {
+    height: 15px;
+  }
+  30% {
+    height: 17px;
+  }
+  40% {
+    height: 15px;
+  }
+  50% {
+    height: 17px;
+  }
+  65% {
+    border-radius: 0 0 15px 15px;
+    height: 15px;
+    width: 25px;
+  }
+  66% {
+    border-radius: 15px;
+    height: 12px;
+    width: 10px;
+  }
+  80% {
+    border-radius: 15px;
+    height: 12px;
+    width: 10px;
+  }
+  81% {
+    border-radius: 0 0 15px 15px;
+    height: 8px;
+    width: 25px;
+  }
+  90% {
+    border-radius: 0 0 15px 15px;
+    height: 8px;
+    width: 25px;
+  }
+}
+@-webkit-keyframes anim-mouth-teeth-bottom {
+  80% {
+    background-color: #e66;
+    bottom: -4px;
+    border-radius: 100%;
+    height: 10px;
+    width: 17px;
+  }
+  81% {
+    background-color: #fff;
+    border-radius: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+  }
+  90% {
+    background-color: #fff;
+    border-radius: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+  }
+}
+@keyframes anim-mouth-teeth-bottom {
+  80% {
+    background-color: #e66;
+    bottom: -4px;
+    border-radius: 100%;
+    height: 10px;
+    width: 17px;
+  }
+  81% {
+    background-color: #fff;
+    border-radius: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+  }
+  90% {
+    background-color: #fff;
+    border-radius: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+  }
+}
+@-webkit-keyframes anim-tentacle-left {
+  from {
+    -webkit-transform: translateY(-2px) rotate(-7deg);
+            transform: translateY(-2px) rotate(-7deg);
+  }
+  to {
+    -webkit-transform: translateY(-2px) rotate(7deg);
+            transform: translateY(-2px) rotate(7deg);
+  }
+}
+@keyframes anim-tentacle-left {
+  from {
+    -webkit-transform: translateY(-2px) rotate(-7deg);
+            transform: translateY(-2px) rotate(-7deg);
+  }
+  to {
+    -webkit-transform: translateY(-2px) rotate(7deg);
+            transform: translateY(-2px) rotate(7deg);
+  }
+}
+@-webkit-keyframes anim-tentacle-right {
+  from {
+    top: -17px;
+  }
+  to {
+    top: -32px;
+  }
+}
+@keyframes anim-tentacle-right {
+  from {
+    top: -17px;
+  }
+  to {
+    top: -32px;
+  }
+}
+a {
+  color: #2196f3;
+  font-weight: 600;
+}
+a:hover {
+  color: #e66;
+}
+
+.title {
+  color: #999;
+  text-align: center;
+}
+.title h1 {
+  font-size: 1.5em;
+  margin: 100px 0 10px 0;
+}
+.title a {
+  vertical-align: middle;
+}
+.title a:hover img {
+  -webkit-animation: link .5s;
+          animation: link .5s;
+}
+.title img {
+  width: 18px;
+}
+
+a {
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #22222280;
+  text-decoration: underline;
+}
+
+html,
+body {
+  font-family: "Open Sans";
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #adb5bd;
+}
+
+.title {
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 1.5em;
+  margin: 100px 0 10px 0;
+}
+
+.socials {
+  display: block;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+.socials li {
+  display: inline;
+}
+.socials li:not(:last-child) {
+  margin-right: .75em;
+}
+.socials li a {
+  vertical-align: middle;
+}
+.socials li a:hover img {
+  -webkit-animation: link .5s;
+          animation: link .5s;
+}
+.socials li a img {
+  width: 1.3em;
+}
+
+.credits {
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.love {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/42764/heart-smil.svg);
+  display: inline-block;
+  height: 16px;
+  vertical-align: middle;
+  width: 16px;
+}
+
+.container {
+  border-radius: 4px;
+  height: 300px;
+  margin: 40px auto 50px auto;
+  position: relative;
+  width: 450px;
+}
+
+.artboard {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+@-webkit-keyframes link {
+  25% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+}
+@keyframes link {
+  25% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+}
+</style>
+</head>
+<body>
+<div class="title">
+<h1> Коронавирус - Зарази своих друзей! </h1>
+</div>
+<div class="container">
+<div class="bubbles bubbles-one"></div>
+<div class="bubbles bubbles-two"></div>
+<div class="character">
+<div class="head">
+<div class="head-anim">
+<div class="head-back">
+<div class="rounding">
+<div class="round round-one"></div>
+<div class="round round-two"></div>
+</div>
+</div>
+<div class="head-front"></div>
+<div class="circles"></div>
+<div class="mouth"></div>
+</div>
+<div class="eyes">
+<div class="eye eye-one">
+<div class="pupil"></div>
+</div>
+<div class="eye eye-two">
+<div class="pupil"></div>
+</div>
+</div>
+</div>
+<div class="body">
+<div class="tentacles"></div>
+<div class="tentacles-left">
+<div class="part-anim">
+<div class="line">
+<div class="line">
+<div class="line">
+<div class="line">
+<div class="line">
+<div class="line">
+<div class="line">
+<div class="line">
+<div class="line"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tentacles-right">
+<div class="part-one"></div>
+</div>
+<div class="guitar">
+<div class="deck"></div>
+<div class="neck"></div>
+</div>
+</div>
+</div>
+</div>
+            <h1 style="font-size: 30pt;text-align: center;"  id="newyear">15:15:15:15</h1>
+<script type="text/javascript">
+    function newYearIn()
+    {
+        //var days=" дней "
+        var now = new Date();
+        var newYear = new Date("Jan,01,2021,00:00:00");
+        var totalRemains = (newYear.getTime()-now.getTime());
+        if (totalRemains>1)
+        {
+            var RemainsSec=(parseInt(totalRemains/1000));
+              var RemainsFullDays=(parseInt(RemainsSec/(24*60*60)));
+              var secInLastDay=RemainsSec-RemainsFullDays*24*3600;
+              var RemainsFullHours=(parseInt(secInLastDay/3600));
+              if (RemainsFullHours<10){RemainsFullHours="0"+RemainsFullHours};
+              var secInLastHour=secInLastDay-RemainsFullHours*3600;
+              var RemainsMinutes=(parseInt(secInLastHour/60));
+              if (RemainsMinutes<10){RemainsMinutes="0"+RemainsMinutes};
+              var lastSec=secInLastHour-RemainsMinutes*60;
+              if (lastSec<10){lastSec="0"+lastSec};
+            //document.getElementById('newyear').innerHTML = "<p style='font-size:22px;'>До Нового Года осталось: "+RemainsFullDays+days+RemainsFullHours+":"+RemainsMinutes+":"+lastSec+"</p>";
+              document.getElementById('newyear').innerHTML = "  "+RemainsFullDays+"<span> : </span>"+RemainsFullHours+"<span > : </span>"+RemainsMinutes+"<span > : </span>"+lastSec+"";
+              setTimeout("newYearIn()",10);
+        } 
+          else {document.getElementById("newyear").innerHTML = "С новым годом!";}
+    }
+     
+    function incline(words,n){ // первый параметр -- 3-и варианта склонения существительного по правилу 1, 2, 5; второй -- сама переменная с числом
+       return words[(n%100>4 && n%100<20)?2:[2,0,1,1,1,2][Math.min(n%10,5)]];
+    }
+     
+    newYearIn();
+    </script>
+</body>
+</html>
