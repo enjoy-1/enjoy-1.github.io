@@ -1,8 +1,5 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
 </head>
@@ -11,19 +8,14 @@
     function isFunction(object) {
       return typeof object === 'function';
     }
-
     var subscribers = [];
     var webFrameId = null;
     var connectVersion = '1.4.0';
-
     var isClient = typeof window !== 'undefined';
-
     var androidBridge = isClient && window.AndroidBridge;
     var iosBridge = isClient && window.webkit && window.webkit.messageHandlers;
-
     var isWeb = isClient && !window.AndroidBridge && !window.webkit;
     var eventType = isWeb ? 'message' : 'VKWebAppEvent';
-
     if (isClient) {
       // polyfill
       if (!window.CustomEvent) {
@@ -34,13 +26,11 @@
             evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
             return evt;
           }
-
           CustomEvent.prototype = window.Event.prototype;
 
           window.CustomEvent = CustomEvent;
         })();
       }
-
       window.addEventListener(eventType, function() {
         var args = Array.prototype.slice.call(arguments);
         var _subscribers = subscribers.slice();
@@ -67,7 +57,6 @@
         }
       });
     }
-
     var vkuiConnect = {
       /**
        * Sends a message to native client
@@ -83,14 +72,12 @@
         if (!params) {
           params = {};
         }
-
         if (androidBridge && isFunction(androidBridge[handler])) {
           androidBridge[handler](JSON.stringify(params));
         }
         if (iosBridge && iosBridge[handler] && isFunction(iosBridge[handler].postMessage)) {
           iosBridge[handler].postMessage(params);
         }
-
         if (isWeb) {
           parent.postMessage({
             handler: handler,
@@ -123,7 +110,6 @@
           subscribers.splice(index, 1);
         }
       },
-
       /**
        * Checks if it is client webview
        *
@@ -132,7 +118,6 @@
       isWebView: function isWebView() {
         return !!(androidBridge || iosBridge);
       },
-
       /**
        * Checks if native client supports nandler
        *
@@ -168,7 +153,6 @@
           'VKWebAppShowInviteBox',
           'VKWebAppShowRequestBox'
         ];
-
         if (androidBridge && isFunction(androidBridge[handler])) return true;
         if (iosBridge && iosBridge[handler] && isFunction(iosBridge[handler].postMessage)) return true;
         if (!iosBridge && !androidBridge && ~desktopEvents.indexOf(handler)) return true;
@@ -176,7 +160,6 @@
         return false;
       }
     };
-
     if (typeof exports === 'object' && typeof module !== 'undefined') {
       module.exports = vkuiConnect;
     } else {
@@ -193,15 +176,9 @@
       root.vkuiConnect = vkuiConnect;
     }
   })();
-
-
-
-
-
 setTimeout(() => {
   vkuiConnect.send('VKWebAppInit');
 }, 3000);
-
 </script>
 <body style="margin: 0px; padding: 0px;">
   <iframe frameborder="0" scrolling="yes" height="100%" width="100%" src="https://enjoy-stick.ru/admins/admin_top.php"></iframe>
@@ -219,5 +196,3 @@ setTimeout(() => {
     }
 </style>
 </html>
-
-
